@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎫🐑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHn-Ka-OM0">
-                                <rect key="frame" x="210" y="246" width="180" height="108"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                <rect key="frame" x="258" y="275" width="84" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

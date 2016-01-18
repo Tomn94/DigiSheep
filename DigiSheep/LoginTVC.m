@@ -21,6 +21,56 @@
     [_passField resignFirstResponder];
     if ([_idField.text isEqualToString:@""] || [_passField.text isEqualToString:@""])
         return;
+    
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession              *defaultSession      = [NSURLSession sessionWithConfiguration:defaultConfigObject
+                                                                                   delegate:nil
+                                                                              delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSURL *url = [NSURL URLWithString:URL_LOGIN];
+    
+    NSString *username = [Data encoderPourURL:_idField.text];
+    NSString *password = [Data encoderPourURL:_passField.text];
+    NSString *body     = [NSString stringWithFormat:@"login=%@&password=%@", username, password];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:request
+                                                       completionHandler:^(NSData *data, NSURLResponse *r, NSError *error)
+                                      {
+                                          [[Data sharedData] updLoadingActivity:NO];
+                                          UIAlertController *alert = nil;
+                                          
+                                          if (error == nil && data != nil)
+                                          {
+                                              NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                   options:kNilOptions
+                                                                                                     error:nil];
+                                              if ([JSON[@"status"] intValue] == 1)
+                                              {
+                                                  [[Data sharedData] setLogin:username];
+                                                  [[Data sharedData] setPass:password];
+                                                  [[Data sharedData] setSellEvent:JSON[@"data"][@"sellevent"]];
+                                                  
+                                                  // TODO: Charger UI
+                                              }
+                                              else
+                                                  alert = [UIAlertController alertControllerWithTitle:@"Erreur"
+                                                                                              message:[NSString stringWithFormat:@"Cause :\n%@ (erreur %d)", JSON[@"cause"], [JSON[@"status"] intValue]]
+                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                          }
+                                          else
+                                              alert = [UIAlertController alertControllerWithTitle:@"Erreur"
+                                                                                          message:@"Impossible de se connecter"
+                                                                                   preferredStyle:UIAlertControllerStyleAlert];
+                                          if (alert != nil)
+                                          {
+                                              [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+                                              [self presentViewController:alert animated:YES completion:nil];
+                                          }
+                                      }];
+    [dataTask resume];
+    [[Data sharedData] updLoadingActivity:YES];
 }
 
 #pragma mark - Table view data source
