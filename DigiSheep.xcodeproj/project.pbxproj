@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		64948E761C4CD1CD00B8DCE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E751C4CD1CD00B8DCE2 /* main.m */; };
 		64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E781C4CD1CD00B8DCE2 /* AppDelegate.m */; };
-		64948E7C1C4CD1CD00B8DCE2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E7B1C4CD1CD00B8DCE2 /* ViewController.m */; };
 		64948E7F1C4CD1CD00B8DCE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64948E7D1C4CD1CD00B8DCE2 /* Main.storyboard */; };
 		64948E811C4CD1CD00B8DCE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64948E801C4CD1CD00B8DCE2 /* Assets.xcassets */; };
 		64948E841C4CD1CD00B8DCE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64948E821C4CD1CD00B8DCE2 /* LaunchScreen.storyboard */; };
 		64948E8F1C4CD1CD00B8DCE2 /* DigiSheepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E8E1C4CD1CD00B8DCE2 /* DigiSheepTests.m */; };
 		64948E9A1C4CD1CD00B8DCE2 /* DigiSheepUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E991C4CD1CD00B8DCE2 /* DigiSheepUITests.m */; };
+		64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EA81C4CD92200B8DCE2 /* LoginTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		64948E751C4CD1CD00B8DCE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64948E771C4CD1CD00B8DCE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		64948E781C4CD1CD00B8DCE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64948E7A1C4CD1CD00B8DCE2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		64948E7B1C4CD1CD00B8DCE2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		64948E7E1C4CD1CD00B8DCE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64948E801C4CD1CD00B8DCE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64948E831C4CD1CD00B8DCE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,8 @@
 		64948E951C4CD1CD00B8DCE2 /* DigiSheepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigiSheepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64948E991C4CD1CD00B8DCE2 /* DigiSheepUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DigiSheepUITests.m; sourceTree = "<group>"; };
 		64948E9B1C4CD1CD00B8DCE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64948EA71C4CD92200B8DCE2 /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
+		64948EA81C4CD92200B8DCE2 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +103,9 @@
 			children = (
 				64948E771C4CD1CD00B8DCE2 /* AppDelegate.h */,
 				64948E781C4CD1CD00B8DCE2 /* AppDelegate.m */,
-				64948E7A1C4CD1CD00B8DCE2 /* ViewController.h */,
-				64948E7B1C4CD1CD00B8DCE2 /* ViewController.m */,
 				64948E7D1C4CD1CD00B8DCE2 /* Main.storyboard */,
+				64948EA71C4CD92200B8DCE2 /* LoginTVC.h */,
+				64948EA81C4CD92200B8DCE2 /* LoginTVC.m */,
 				64948E801C4CD1CD00B8DCE2 /* Assets.xcassets */,
 				64948E821C4CD1CD00B8DCE2 /* LaunchScreen.storyboard */,
 				64948E851C4CD1CD00B8DCE2 /* Info.plist */,
@@ -207,6 +207,7 @@
 				TargetAttributes = {
 					64948E701C4CD1CD00B8DCE2 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 7HW87TV8LC;
 					};
 					64948E891C4CD1CD00B8DCE2 = {
 						CreatedOnToolsVersion = 7.2;
@@ -270,9 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64948E7C1C4CD1CD00B8DCE2 /* ViewController.m in Sources */,
 				64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */,
 				64948E761C4CD1CD00B8DCE2 /* main.m in Sources */,
+				64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +414,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DigiSheep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eseomega.DigiSheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,7 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DigiSheep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eseomega.DigiSheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +503,7 @@
 				64948EA01C4CD1CD00B8DCE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64948EA11C4CD1CD00B8DCE2 /* Build configuration list for PBXNativeTarget "DigiSheepTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +512,7 @@
 				64948EA31C4CD1CD00B8DCE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64948EA41C4CD1CD00B8DCE2 /* Build configuration list for PBXNativeTarget "DigiSheepUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +521,7 @@
 				64948EA61C4CD1CD00B8DCE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
