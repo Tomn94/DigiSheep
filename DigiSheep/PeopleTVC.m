@@ -21,6 +21,8 @@
     self.navigationItem.title = [[Data sharedData] JSON][@"titre"];
 }
 
+#pragma mark - Actions
+
 - (IBAction) deconnexion:(id)sender
 {
     [[Data sharedData] setLogin:nil];
@@ -38,6 +40,17 @@
     PeopleCell *cell1 = (PeopleCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     PeopleCell *cell2 = (PeopleCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     PeopleCell *cell3 = (PeopleCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    
+    // TODO: Retirer après finalisation
+    cell1.field.text = @"Guy Plantier";
+    cell2.field.text = @"10/10/2042";
+    cell3.field.text = @"ESEO";
+    selectionPlace = @"38A";
+    [self.tableView reloadData];
+    
+    
+    
     if ([cell1.field.text isEqualToString:@""] || [cell2.field.text isEqualToString:@""] || [cell3.field.text isEqualToString:@""])
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Erreur"
@@ -68,6 +81,11 @@
         return;
     }
     
+    UIBarButtonItem *btnValider = self.navigationItem.rightBarButtonItem;
+    UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [spin startAnimating];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:spin] animated:YES];
+    
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession              *defaultSession      = [NSURLSession sessionWithConfiguration:defaultConfigObject
                                                                                    delegate:nil
@@ -79,6 +97,7 @@
                                                        completionHandler:^(NSData *data, NSURLResponse *r, NSError *error)
                                       {
                                           [[Data sharedData] updLoadingActivity:NO];
+                                          [self.navigationItem setRightBarButtonItem:btnValider animated:YES];
                                           UIAlertController *alert = nil;
                                           
                                           if (error == nil && data != nil)

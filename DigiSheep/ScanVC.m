@@ -82,6 +82,33 @@
     });
 }
 
+- (void) viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    if (prevLayer.connection && prevLayer.connection.supportsVideoOrientation)
+    {
+        switch ([UIDevice currentDevice].orientation)
+        {
+            case UIDeviceOrientationPortraitUpsideDown:
+                prevLayer.connection.videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+                break;
+            case UIDeviceOrientationLandscapeLeft:
+                prevLayer.connection.videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+                break;
+            case UIDeviceOrientationLandscapeRight:
+                prevLayer.connection.videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+                break;
+            default:
+                prevLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+                break;
+        }
+    }
+    prevLayer.frame = self.view.bounds;
+}
+
+#pragma mark - Actions
+
 - (IBAction) flash:(id)sender
 {
     UIBarButtonItem *item = self.navigationItem.leftBarButtonItem;
@@ -110,6 +137,11 @@
     codeDetecte = NO;
     detectView.frame = CGRectNull;
     [session startRunning];
+    if (flash)
+    {
+        flash = !flash;
+        [self flash:nil];
+    }
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
 }
 
