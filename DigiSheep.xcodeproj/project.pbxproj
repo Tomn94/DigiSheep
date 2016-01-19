@@ -16,6 +16,9 @@
 		64948E9A1C4CD1CD00B8DCE2 /* DigiSheepUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E991C4CD1CD00B8DCE2 /* DigiSheepUITests.m */; };
 		64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EA81C4CD92200B8DCE2 /* LoginTVC.m */; };
 		64948EAC1C4D5FD400B8DCE2 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EAB1C4D5FD400B8DCE2 /* Data.m */; };
+		64948EAE1C4D640E00B8DCE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64948EAD1C4D640E00B8DCE2 /* Main.storyboard */; };
+		64948EB11C4D75C400B8DCE2 /* PeopleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */; };
+		64948EB41C4DB69400B8DCE2 /* ScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EB31C4DB69400B8DCE2 /* ScanVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,11 @@
 		64948EA81C4CD92200B8DCE2 /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
 		64948EAA1C4D5FD400B8DCE2 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		64948EAB1C4D5FD400B8DCE2 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		64948EAD1C4D640E00B8DCE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		64948EAF1C4D75C400B8DCE2 /* PeopleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleTVC.h; sourceTree = "<group>"; };
+		64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTVC.m; sourceTree = "<group>"; };
+		64948EB21C4DB69400B8DCE2 /* ScanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanVC.h; sourceTree = "<group>"; };
+		64948EB31C4DB69400B8DCE2 /* ScanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,11 @@
 				64948E7D1C4CD1CD00B8DCE2 /* Login.storyboard */,
 				64948EA71C4CD92200B8DCE2 /* LoginTVC.h */,
 				64948EA81C4CD92200B8DCE2 /* LoginTVC.m */,
+				64948EAD1C4D640E00B8DCE2 /* Main.storyboard */,
+				64948EAF1C4D75C400B8DCE2 /* PeopleTVC.h */,
+				64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */,
+				64948EB21C4DB69400B8DCE2 /* ScanVC.h */,
+				64948EB31C4DB69400B8DCE2 /* ScanVC.m */,
 				64948E801C4CD1CD00B8DCE2 /* Assets.xcassets */,
 				64948E851C4CD1CD00B8DCE2 /* Info.plist */,
 				64948E741C4CD1CD00B8DCE2 /* Supporting Files */,
@@ -252,6 +265,7 @@
 				64948E841C4CD1CD00B8DCE2 /* LaunchScreen.storyboard in Resources */,
 				64948E811C4CD1CD00B8DCE2 /* Assets.xcassets in Resources */,
 				64948E7F1C4CD1CD00B8DCE2 /* Login.storyboard in Resources */,
+				64948EAE1C4D640E00B8DCE2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +292,8 @@
 			files = (
 				64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */,
 				64948E761C4CD1CD00B8DCE2 /* main.m in Sources */,
+				64948EB11C4D75C400B8DCE2 /* PeopleTVC.m in Sources */,
+				64948EB41C4DB69400B8DCE2 /* ScanVC.m in Sources */,
 				64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */,
 				64948EAC1C4D5FD400B8DCE2 /* Data.m in Sources */,
 			);
@@ -421,6 +437,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"iPAD=\"UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad\"",
+				);
 				INFOPLIST_FILE = DigiSheep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -434,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = "iPAD=\"UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad\"";
 				INFOPLIST_FILE = DigiSheep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
