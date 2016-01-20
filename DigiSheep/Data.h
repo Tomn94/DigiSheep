@@ -13,6 +13,7 @@
 #define URL_LOGIN @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/login.php"
 #define URL_JSON  @"http://79.170.44.147/eseonews.fr/jsondata/events_data/events.json?%d"
 #define URL_NAVET @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/items.php"
+#define URL_CHECK @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/check.php"
 
 @interface Data : NSObject
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) NSString *pass;
 @property (nonatomic) NSInteger sellEvent;
 @property (strong, nonatomic) NSDictionary *JSON;
+@property (strong, nonatomic) NSString *subEvent;
 
 - (void) updLoadingActivity:(BOOL)visible;
 

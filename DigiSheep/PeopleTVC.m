@@ -105,6 +105,7 @@
                                               NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data
                                                                                               options:kNilOptions
                                                                                                 error:nil];
+                                              [[Data sharedData] setSubEvent:selectionPlace];
                                               [self evaluerNavettes:JSON[0][@"event-navettes"]];
                                           }
                                           else
@@ -137,7 +138,9 @@
     
     if (hasNavettes)
     {
-        NSLog(@"Navettes");
+        NavettesTVC *navTVC = [[NavettesTVC alloc] initWithStyle:UITableViewStylePlain
+                                                         andData:nav];
+        [self.navigationController pushViewController:navTVC animated:YES];
     }
     else
     {

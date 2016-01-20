@@ -7,8 +7,9 @@
 //
 
 @import UIKit;
-#import "Data.h"
 
+#import "Data.h"
+#import "NavettesTVC.h"
 
 @interface PeopleCell : UITableViewCell
 

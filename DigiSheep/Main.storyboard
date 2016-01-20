@@ -18,6 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Scanner un QRcode" id="NYF-un-Vde">
                         <barButtonItem key="leftBarButtonItem" image="flashOff" id="Wa3-Yi-ma9">
                             <connections>
@@ -42,7 +43,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="J2z-Kd-z8h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" id="tRd-AJ-wG5" customClass="PeopleCell">
                                 <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -94,7 +95,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -113,7 +114,7 @@
                                 <action selector="deconnexion:" destination="Hzh-Zm-6V4" id="KF3-8e-7V9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Valider" style="done" id="393-NX-5Jb">
+                        <barButtonItem key="rightBarButtonItem" title="Valider" id="393-NX-5Jb">
                             <connections>
                                 <action selector="valider:" destination="Hzh-Zm-6V4" id="8VV-QU-dcV"/>
                             </connections>
@@ -165,7 +166,7 @@
         <!--Scanner-->
         <scene sceneID="QgG-Gk-91f">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k7m-uD-zRH" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="k7m-uD-zRH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Scanner" image="door" selectedImage="doorSel" id="1iq-FB-cja"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8J9-jx-Ecf">
@@ -173,6 +174,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="oPI-PV-ivH">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="0GE-eH-HxM" kind="relationship" relationship="rootViewController" id="nqu-6M-NSI"/>
                     </connections>

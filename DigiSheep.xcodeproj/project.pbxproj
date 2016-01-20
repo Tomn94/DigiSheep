@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64435DD81C4F127300A719FA /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 64435DD71C4F127300A719FA /* JPSVolumeButtonHandler.m */; };
 		64948E761C4CD1CD00B8DCE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E751C4CD1CD00B8DCE2 /* main.m */; };
 		64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E781C4CD1CD00B8DCE2 /* AppDelegate.m */; };
 		64948E7F1C4CD1CD00B8DCE2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64948E7D1C4CD1CD00B8DCE2 /* Login.storyboard */; };
@@ -19,6 +20,7 @@
 		64948EAE1C4D640E00B8DCE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64948EAD1C4D640E00B8DCE2 /* Main.storyboard */; };
 		64948EB11C4D75C400B8DCE2 /* PeopleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */; };
 		64948EB41C4DB69400B8DCE2 /* ScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EB31C4DB69400B8DCE2 /* ScanVC.m */; };
+		64948EB71C4E40F700B8DCE2 /* NavettesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948EB61C4E40F700B8DCE2 /* NavettesTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64435DD61C4F127300A719FA /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
+		64435DD71C4F127300A719FA /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		64948E711C4CD1CD00B8DCE2 /* DigiSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64948E751C4CD1CD00B8DCE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64948E771C4CD1CD00B8DCE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleTVC.m; sourceTree = "<group>"; };
 		64948EB21C4DB69400B8DCE2 /* ScanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanVC.h; sourceTree = "<group>"; };
 		64948EB31C4DB69400B8DCE2 /* ScanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanVC.m; sourceTree = "<group>"; };
+		64948EB51C4E40F700B8DCE2 /* NavettesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavettesTVC.h; sourceTree = "<group>"; };
+		64948EB61C4E40F700B8DCE2 /* NavettesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavettesTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64435DD41C4F0F9800A719FA /* Vente */ = {
+			isa = PBXGroup;
+			children = (
+				64948EAD1C4D640E00B8DCE2 /* Main.storyboard */,
+				64948EAF1C4D75C400B8DCE2 /* PeopleTVC.h */,
+				64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */,
+				64948EB51C4E40F700B8DCE2 /* NavettesTVC.h */,
+				64948EB61C4E40F700B8DCE2 /* NavettesTVC.m */,
+			);
+			name = Vente;
+			sourceTree = "<group>";
+		};
+		64435DD51C4F0FAC00A719FA /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				64948EB21C4DB69400B8DCE2 /* ScanVC.h */,
+				64948EB31C4DB69400B8DCE2 /* ScanVC.m */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
+		64435DD91C4F127700A719FA /* JPSVolumeButtonHandler */ = {
+			isa = PBXGroup;
+			children = (
+				64435DD61C4F127300A719FA /* JPSVolumeButtonHandler.h */,
+				64435DD71C4F127300A719FA /* JPSVolumeButtonHandler.m */,
+			);
+			name = JPSVolumeButtonHandler;
+			sourceTree = "<group>";
+		};
 		64948E681C4CD1CD00B8DCE2 = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +156,11 @@
 				64948E7D1C4CD1CD00B8DCE2 /* Login.storyboard */,
 				64948EA71C4CD92200B8DCE2 /* LoginTVC.h */,
 				64948EA81C4CD92200B8DCE2 /* LoginTVC.m */,
-				64948EAD1C4D640E00B8DCE2 /* Main.storyboard */,
-				64948EAF1C4D75C400B8DCE2 /* PeopleTVC.h */,
-				64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */,
-				64948EB21C4DB69400B8DCE2 /* ScanVC.h */,
-				64948EB31C4DB69400B8DCE2 /* ScanVC.m */,
+				64435DD41C4F0F9800A719FA /* Vente */,
+				64435DD51C4F0FAC00A719FA /* Scan */,
 				64948E801C4CD1CD00B8DCE2 /* Assets.xcassets */,
 				64948E851C4CD1CD00B8DCE2 /* Info.plist */,
+				64435DD91C4F127700A719FA /* JPSVolumeButtonHandler */,
 				64948E741C4CD1CD00B8DCE2 /* Supporting Files */,
 			);
 			path = DigiSheep;
@@ -292,8 +326,10 @@
 			files = (
 				64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */,
 				64948E761C4CD1CD00B8DCE2 /* main.m in Sources */,
+				64435DD81C4F127300A719FA /* JPSVolumeButtonHandler.m in Sources */,
 				64948EB11C4D75C400B8DCE2 /* PeopleTVC.m in Sources */,
 				64948EB41C4DB69400B8DCE2 /* ScanVC.m in Sources */,
+				64948EB71C4E40F700B8DCE2 /* NavettesTVC.m in Sources */,
 				64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */,
 				64948EAC1C4D5FD400B8DCE2 /* Data.m in Sources */,
 			);

@@ -9,10 +9,15 @@
 @import UIKit;
 @import AVFoundation;
 
+#import "Data.h"
+#import "JPSVolumeButtonHandler.h"
+
 @interface ScanVC : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
 {
-    BOOL flash, codeDetecte;
+    BOOL flash, codeDetecte, cancel;
     UIBarButtonItem *refresh;
+    NSArray *toolbarInfos;
+    NSURLSessionDataTask *runningTask;
     
     AVCaptureVideoPreviewLayer *prevLayer;
     AVCaptureMetadataOutput *output;
@@ -21,10 +26,13 @@
     NSTimeInterval lastCheckT;
     NSString *lastCheckS;
     UIView *detectView;
+    
+    JPSVolumeButtonHandler *volumeButtonHandler;
 }
 
 - (IBAction) flash:(id)sender;
 - (IBAction) retry:(id)sender;
+- (void) cancel;
 - (void) detectionCode:(NSString *)data;
 
 @end

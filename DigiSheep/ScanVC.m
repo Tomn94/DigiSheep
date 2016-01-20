@@ -17,11 +17,33 @@
     captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     refresh = self.navigationItem.rightBarButtonItem;
     self.navigationItem.rightBarButtonItem = nil;
+    
+    UIBarButtonItem *status = [[UIBarButtonItem alloc] initWithTitle:@"En attente…"
+                                                               style:UIBarButtonItemStyleDone
+                                                              target:nil action:nil];
+    status.tintColor = [UIColor grayColor];
+    UIBarButtonItem *nom    = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:nil action:nil];
+    nom.tintColor = [UIColor whiteColor];
+    UIBarButtonItem *ecole  = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                               style:UIBarButtonItemStylePlain
+                                                              target:nil action:nil];
+    ecole.tintColor = [UIColor whiteColor];
+    self.toolbarItems = @[status, [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                target:nil action:nil],
+                          nom,    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                target:nil action:nil],
+                          ecole];
+    toolbarInfos = self.toolbarItems;
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if (codeDetecte)
+        return;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         NSError *error;
@@ -68,6 +90,15 @@
         }
         
         [session startRunning];
+        
+        volumeButtonHandler = [JPSVolumeButtonHandler volumeButtonHandlerWithUpBlock:^{
+            [self flash:nil];
+        } downBlock:^{
+            if (runningTask == nil || runningTask.state == NSURLSessionTaskStateCompleted)
+                [self retry:nil];
+            else
+                [self cancel];
+        }];
     });
 }
 
@@ -79,6 +110,7 @@
         if (flash)
             [self flash:nil];
         [session stopRunning];
+        volumeButtonHandler = nil;
     });
 }
 
@@ -105,6 +137,8 @@
         }
     }
     prevLayer.frame = self.view.bounds;
+    if (codeDetecte)
+        detectView.frame = CGRectNull;
 }
 
 #pragma mark - Actions
@@ -135,19 +169,134 @@
 - (IBAction) retry:(id)sender
 {
     codeDetecte = NO;
+    
     detectView.frame = CGRectNull;
+    detectView.layer.borderColor = [UIColor colorWithRed:0 green:0.88 blue:1 alpha:1].CGColor;
     [session startRunning];
+    
     if (flash)
     {
         flash = !flash;
         [self flash:nil];
     }
+    
+    self.toolbarItems = nil;
+    UIBarButtonItem *b1 = toolbarInfos[0];
+    b1.title = @"En attente…";
+    b1.tintColor = [UIColor grayColor];
+    self.toolbarItems = @[b1, toolbarInfos[1]];
+    self.navigationController.navigationBar.barTintColor = [UINavigationBar appearance].barTintColor;
+    
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
+}
+
+- (void) cancel
+{
+    cancel = YES;
+    [runningTask cancel];
+    [self retry:nil];
 }
 
 - (void) detectionCode:(NSString *)data
 {
     codeDetecte = YES;
+    
+    // DÉTECTION HORS LIGNE
+    @try {
+        if (data != nil && ![data isEqualToString:@""] && [data rangeOfString:@","].location != NSNotFound)
+        {
+            NSArray *d = [data componentsSeparatedByString:@","];
+            
+            UIColor *coul = [UIColor colorWithRed:1.0 green:0.502 blue:0.0 alpha:1.0];
+            UIBarButtonItem *b1 = toolbarInfos[0];
+            b1.title = @"HORS-LIGNE";
+            b1.tintColor = coul;
+            UIBarButtonItem *b2 = toolbarInfos[2];
+            b2.title = @"?";
+            if ([d count] > 0 && d[0] != nil && ![d[0] isEqualToString:@""])
+            {
+                NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:d[0] options:0];
+                if (decodedData)
+                {
+                    NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+                    if (decodedString)
+                        b2.title = decodedString;
+                }
+            }
+            self.toolbarItems = @[b1, toolbarInfos[1], b2];
+            self.navigationController.navigationBar.barTintColor = coul;
+            detectView.layer.borderColor = coul.CGColor;
+        }
+    }
+    @catch (NSException *exception) {
+    }
+    @finally {
+    }
+    
+    // VÉRIFICATION EN LIGNE
+    if (runningTask == nil || runningTask.state == NSURLSessionTaskStateCompleted)
+    {
+        UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [spin startAnimating];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancel)];
+        [spin setUserInteractionEnabled:YES];
+        [spin addGestureRecognizer:tap];
+        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:spin] animated:YES];
+        
+        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+        NSURLSession              *defaultSession      = [NSURLSession sessionWithConfiguration:defaultConfigObject
+                                                                                       delegate:nil
+                                                                                  delegateQueue:[NSOperationQueue mainQueue]];
+        
+        NSString *qrdt = [[data dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+        NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&idevent=%ld&type=QR_CODE&barcode=%@",
+                          [[Data sharedData] login], [[Data sharedData] pass], [[Data sharedData] sellEvent], qrdt];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URL_CHECK]];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+        runningTask = [defaultSession dataTaskWithRequest:request
+                                        completionHandler:^(NSData *data, NSURLResponse *r, NSError *error)
+                       {
+                           [[Data sharedData] updLoadingActivity:NO];
+                           if (!cancel)
+                               [self.navigationItem setRightBarButtonItem:refresh animated:YES];
+                           else
+                               cancel = NO;
+                           
+                           if (error == nil && data != nil)
+                           {
+                               NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                                    options:kNilOptions
+                                                                                      error:nil];
+                               UIColor *coul = [UIColor colorWithRed:237/255. green:28/255. blue:36/255. alpha:1];
+                               if ([JSON[@"status"] intValue] == 1)
+                               {
+                                   coul = [UIColor colorWithRed:0.3529 green:0.8314 blue:0.1529 alpha:1.0];
+                                   UIBarButtonItem *b1 = toolbarInfos[0];
+                                   b1.title = @"VALIDE";
+                                   b1.tintColor = coul;
+                                   UIBarButtonItem *b2 = toolbarInfos[2];
+                                   b2.title = JSON[@"data"][@"clientname"];
+                                   UIBarButtonItem *b3 = toolbarInfos[2];
+                                   b3.title = JSON[@"data"][@"clientinfo"];
+                                   self.toolbarItems = @[b1, toolbarInfos[1], b2, toolbarInfos[2], b3];
+                               }
+                               else
+                               {
+                                   UIBarButtonItem *b1 = toolbarInfos[0];
+                                   b1.title = @"ERREUR";
+                                   b1.tintColor = coul;
+                                   UIBarButtonItem *b2 = toolbarInfos[2];
+                                   b2.title = JSON[@"cause"];
+                                   self.toolbarItems = @[b1, toolbarInfos[1], b2];
+                               }
+                               self.navigationController.navigationBar.barTintColor = coul;
+                               detectView.layer.borderColor = coul.CGColor;
+                           }
+                       }];
+        [runningTask resume];
+        [[Data sharedData] updLoadingActivity:YES];
+    }
 }
 
 #pragma mark - Capture Metadata Output Objects delegate
@@ -169,8 +318,9 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
             detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
             if (!codeDetecte)
             {
+                AudioServicesPlaySystemSound(1108);
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
                 [self detectionCode:detectionString];
-                [self.navigationItem setRightBarButtonItem:refresh animated:YES];
                 [session stopRunning];
             }
             break;

@@ -121,7 +121,6 @@
                                                     <rect key="frame" x="8" y="-1" width="284" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="iOk-h0-vl8"/>
-                                                        <constraint firstAttribute="width" constant="284" id="krQ-uf-A3B"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
