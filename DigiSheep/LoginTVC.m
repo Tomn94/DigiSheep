@@ -38,13 +38,12 @@
 
 @implementation LoginTVC
 
-- (void)viewDidAppear:(BOOL)animated { // TODO: Retirer après finalisation
-    [super viewDidAppear:animated];
-    _idField.text = @"dev";
-    _passField.text = @"dev";
-    [self connexion];
+- (void) viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+    
+    _idField.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"login"];
 }
-
 
 - (void) connexion
 {
@@ -121,6 +120,10 @@
                                                                 // INFOS EVENT TROUVÉES
                                                                 if (e != nil)
                                                                 {
+                                                                    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+                                                                    [def setValue:_idField.text forKey:@"login"];
+                                                                    [def synchronize];
+                                                                    
                                                                     [[Data sharedData] setLogin:username];
                                                                     [[Data sharedData] setPass:password];
                                                                     [[Data sharedData] setSellEvent:[JSON[@"data"][@"sellevent"] integerValue]];

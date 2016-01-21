@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6431DE2E1C4FBAC40091FC7D /* ScanVendreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6431DE2D1C4FBAC40091FC7D /* ScanVendreVC.m */; };
 		64435DD81C4F127300A719FA /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 64435DD71C4F127300A719FA /* JPSVolumeButtonHandler.m */; };
 		64948E761C4CD1CD00B8DCE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E751C4CD1CD00B8DCE2 /* main.m */; };
 		64948E791C4CD1CD00B8DCE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64948E781C4CD1CD00B8DCE2 /* AppDelegate.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6431DE2C1C4FBAC40091FC7D /* ScanVendreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanVendreVC.h; sourceTree = "<group>"; };
+		6431DE2D1C4FBAC40091FC7D /* ScanVendreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanVendreVC.m; sourceTree = "<group>"; };
 		64435DD61C4F127300A719FA /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		64435DD71C4F127300A719FA /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		64948E711C4CD1CD00B8DCE2 /* DigiSheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiSheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +106,8 @@
 				64948EB01C4D75C400B8DCE2 /* PeopleTVC.m */,
 				64948EB51C4E40F700B8DCE2 /* NavettesTVC.h */,
 				64948EB61C4E40F700B8DCE2 /* NavettesTVC.m */,
+				6431DE2C1C4FBAC40091FC7D /* ScanVendreVC.h */,
+				6431DE2D1C4FBAC40091FC7D /* ScanVendreVC.m */,
 			);
 			name = Vente;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				64948EB11C4D75C400B8DCE2 /* PeopleTVC.m in Sources */,
 				64948EB41C4DB69400B8DCE2 /* ScanVC.m in Sources */,
 				64948EB71C4E40F700B8DCE2 /* NavettesTVC.m in Sources */,
+				6431DE2E1C4FBAC40091FC7D /* ScanVendreVC.m in Sources */,
 				64948EA91C4CD92200B8DCE2 /* LoginTVC.m in Sources */,
 				64948EAC1C4D5FD400B8DCE2 /* Data.m in Sources */,
 			);

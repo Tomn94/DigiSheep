@@ -73,4 +73,52 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(loadingCount > 0)];
 }
 
+- (void) sendResa:(NSDictionary *)d
+{
+    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession              *defaultSession      = [NSURLSession sessionWithConfiguration:defaultConfigObject
+                                                                                   delegate:nil
+                                                                              delegateQueue:[NSOperationQueue mainQueue]];
+    
+    NSString *nom    = [[d[@"nom"] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+    NSString *date   = [[d[@"date"] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+    NSString *ecole  = [[d[@"ecole"] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+    NSString *dataQR = [[d[@"qrcode"] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
+    NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&idevent=%@&clientname=%@&clientbirth=%@&clientschool=%@&barcode=%@&type=%@",
+                      [[Data sharedData] login], [[Data sharedData] pass], [Data encoderPourURL:d[@"idevent"]],
+                      [Data encoderPourURL:nom], [Data encoderPourURL:date], [Data encoderPourURL:ecole],
+                      [Data encoderPourURL:dataQR], @"QR_CODE"];
+    if (d[@"navette"] != nil && d[@"navette"][@"idshuttle"] != nil)
+        body = [body stringByAppendingString:[NSString stringWithFormat:@"&idshuttle=%ld",
+                                              (long)[d[@"navette"][@"idshuttle"] integerValue]]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URL_SEND]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:request
+                                                       completionHandler:^(NSData *data, NSURLResponse *r, NSError *error)
+                                      {
+                                          [[Data sharedData] updLoadingActivity:NO];
+                                          
+                                          if (error == nil && data != nil)
+                                          {
+                                              NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data
+                                                                                                   options:kNilOptions
+                                                                                                     error:nil];
+                                              if ([JSON[@"status"] integerValue] == 1)
+                                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"retourResa" object:nil
+                                                                                                    userInfo:@{ @"status": @1,
+                                                                                                                @"nom"   : d[@"nom"] }];
+                                              else
+                                                  [[NSNotificationCenter defaultCenter] postNotificationName:@"retourResa" object:nil userInfo:@{ @"status": JSON[@"status"], @"errMsg": JSON[@"cause"] }];
+                                              
+                                          }
+                                          else
+                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"retourResa" object:nil
+                                                                                                userInfo:@{ @"status": @(-10),
+                                                                                                            @"errMsg": @"Impossible de se connecter à la base de données" }];
+                                      }];
+    [dataTask resume];
+    [[Data sharedData] updLoadingActivity:YES];
+}
+
 @end

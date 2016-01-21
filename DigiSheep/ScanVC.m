@@ -16,6 +16,8 @@
     
     captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     refresh = self.navigationItem.rightBarButtonItem;
+    refresh.tintColor = [UINavigationBar appearance].tintColor;
+    self.view.tintColor = [UINavigationBar appearance].tintColor;
     self.navigationItem.rightBarButtonItem = nil;
     
     UIBarButtonItem *status = [[UIBarButtonItem alloc] initWithTitle:@"En attente…"
@@ -45,6 +47,7 @@
     if (codeDetecte)
         return;
     
+    self.view.tintColor = [UINavigationBar appearance].tintColor;
     dispatch_async(dispatch_get_main_queue(), ^{
         NSError *error;
         AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
@@ -155,15 +158,11 @@
     [session commitConfiguration];
     
     if (flash)
-    {
         item.image = [UIImage imageNamed:@"flashOn"];
-        [self.navigationItem setLeftBarButtonItem:item animated:YES];
-    }
     else
-    {
         item.image = [UIImage imageNamed:@"flashOff"];
-        [self.navigationItem setLeftBarButtonItem:item animated:YES];
-    }
+    item.tintColor = [UINavigationBar appearance].tintColor;
+    [self.navigationItem setLeftBarButtonItem:item animated:YES];
 }
 
 - (IBAction) retry:(id)sender
@@ -185,6 +184,7 @@
     b1.title = @"En attente…";
     b1.tintColor = [UIColor grayColor];
     self.toolbarItems = @[b1, toolbarInfos[1]];
+    self.navigationController.navigationBar.tintColor = [UINavigationBar appearance].tintColor;
     self.navigationController.navigationBar.barTintColor = [UINavigationBar appearance].barTintColor;
     
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
@@ -250,7 +250,7 @@
         
         NSString *qrdt = [[data dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
         NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&idevent=%ld&type=QR_CODE&barcode=%@",
-                          [[Data sharedData] login], [[Data sharedData] pass], [[Data sharedData] sellEvent], qrdt];
+                          [[Data sharedData] login], [[Data sharedData] pass], (long)[[Data sharedData] sellEvent], qrdt];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URL_CHECK]];
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
@@ -259,7 +259,10 @@
                        {
                            [[Data sharedData] updLoadingActivity:NO];
                            if (!cancel)
+                           {
+                               refresh.tintColor = [UINavigationBar appearance].tintColor;
                                [self.navigationItem setRightBarButtonItem:refresh animated:YES];
+                           }
                            else
                                cancel = NO;
                            
@@ -277,9 +280,9 @@
                                    b1.tintColor = coul;
                                    UIBarButtonItem *b2 = toolbarInfos[2];
                                    b2.title = JSON[@"data"][@"clientname"];
-                                   UIBarButtonItem *b3 = toolbarInfos[2];
+                                   UIBarButtonItem *b3 = toolbarInfos[4];
                                    b3.title = JSON[@"data"][@"clientinfo"];
-                                   self.toolbarItems = @[b1, toolbarInfos[1], b2, toolbarInfos[2], b3];
+                                   self.toolbarItems = @[b1, toolbarInfos[1], b2, toolbarInfos[3], b3];
                                }
                                else
                                {

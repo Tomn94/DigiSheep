@@ -14,10 +14,10 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.343 green:0.0 blue:0.5038 alpha:1]];
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.8684 green:0.8753 blue:0.9989 alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.835 green:0.8391 blue:0.9995 alpha:1.0]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor] }];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.8684 green:0.8753 blue:0.9989 alpha:1.0]];
-    [_window setTintColor:[UIColor colorWithRed:0.343 green:0.0 blue:0.5038 alpha:1]];
+    [_window setTintColor:[UIColor colorWithRed:0.835 green:0.8391 blue:0.9995 alpha:1.0]];//[UIColor colorWithRed:0.343 green:0.0 blue:0.5038 alpha:1]];
     
     return YES;
 }

@@ -20,8 +20,14 @@
                                                                                     style:UIBarButtonItemStylePlain
                                                                                    target:self
                                                                                    action:@selector(valider)]];
+        self.navigationItem.rightBarButtonItem.tintColor = [UINavigationBar appearance].tintColor;
     }
     return self;
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void) setData:(NSDictionary *)data
@@ -65,7 +71,9 @@
         return;
     }
     
-    
+    ScanVendreVC *vc = [ScanVendreVC new];
+    vc.navette = selectionNavette;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Table view data source

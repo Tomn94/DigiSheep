@@ -9,6 +9,7 @@
 @import UIKit;
 
 #import "Data.h"
+#import "ScanVendreVC.h"
 
 @interface NavettesTVC : UITableViewController
 {

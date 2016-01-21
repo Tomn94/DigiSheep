@@ -28,5 +28,7 @@
 - (IBAction) deconnexion:(id)sender;
 - (IBAction) valider:(id)sender;
 - (void) evaluerNavettes:(NSDictionary *)nav;
+- (void) sendInfos:(NSNotification *)n;
+- (void) clear;
 
 @end

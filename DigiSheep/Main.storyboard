@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,11 +21,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Scanner un QRcode" id="NYF-un-Vde">
                         <barButtonItem key="leftBarButtonItem" image="flashOff" id="Wa3-Yi-ma9">
+                            <color key="tintColor" red="0.8666666666666667" green="0.87450980392156863" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="flash:" destination="0GE-eH-HxM" id="8Sf-Df-frY"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="483-DD-HEK">
+                            <color key="tintColor" red="0.86666666670000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="retry:" destination="0GE-eH-HxM" id="kCU-ea-ubs"/>
                             </connections>
@@ -110,11 +112,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="SellEvent" id="gdi-mx-DSc">
                         <barButtonItem key="leftBarButtonItem" image="logout" id="Ryk-c7-EmZ">
+                            <color key="tintColor" red="0.86666666670000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="deconnexion:" destination="Hzh-Zm-6V4" id="KF3-8e-7V9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Valider" id="393-NX-5Jb">
+                            <color key="tintColor" red="0.86666666670000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="valider:" destination="Hzh-Zm-6V4" id="8VV-QU-dcV"/>
                             </connections>
@@ -153,6 +157,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="muU-Xe-9Vz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.86666666670000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -172,6 +177,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8J9-jx-Ecf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.86666666670000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="oPI-PV-ivH">

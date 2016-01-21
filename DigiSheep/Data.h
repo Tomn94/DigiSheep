@@ -14,6 +14,7 @@
 #define URL_JSON  @"http://79.170.44.147/eseonews.fr/jsondata/events_data/events.json?%d"
 #define URL_NAVET @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/items.php"
 #define URL_CHECK @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/check.php"
+#define URL_SEND  @"http://217.199.187.59/francoisle.fr/lacommande/api/digisheep/send.php"
 
 @interface Data : NSObject
 
@@ -28,5 +29,6 @@
 @property (strong, nonatomic) NSString *subEvent;
 
 - (void) updLoadingActivity:(BOOL)visible;
+- (void) sendResa:(NSDictionary *)d;
 
 @end
