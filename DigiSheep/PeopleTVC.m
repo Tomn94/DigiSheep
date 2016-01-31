@@ -200,14 +200,6 @@
     return @"Informations acheteur";
 }
 
-- (NSString *) tableView:(UITableView *)tableView
- titleForFooterInSection:(NSInteger)section
-{
-    if (section)
-        return @"⚠️ Place navette à 25 € pour externes et non 22 €";
-    return nil;
-}
-
 - (UITableViewCell *) tableView:(UITableView *)tableView
           cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
