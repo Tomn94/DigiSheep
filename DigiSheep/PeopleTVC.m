@@ -251,8 +251,10 @@
                                                               : UITableViewCellSelectionStyleNone;
         cell.accessoryType = ([selectionPlace isEqualToString:ticket[@"id"]]) ? UITableViewCellAccessoryCheckmark
                                                                               : UITableViewCellAccessoryNone;
-        cell.textLabel.textColor = ([selectionPlace isEqualToString:ticket[@"id"]]) ? [UINavigationBar appearance].barTintColor
-                                                                                    : [UIColor grayColor];
+        cell.textLabel.textColor = ([ticket[@"dispo"] boolValue]) ?
+                   (([selectionPlace isEqualToString:ticket[@"id"]]) ? [UINavigationBar appearance].barTintColor
+                                                                     : [UIColor grayColor])
+                                                                  : [UIColor lightGrayColor];
     }
     
     return cell;
