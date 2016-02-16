@@ -489,6 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eseomega.DigiSheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e47860e0-ce3b-4d5e-bfb3-2b8c844220c9";
 			};
 			name = Debug;
 		};
@@ -503,6 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eseomega.DigiSheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e47860e0-ce3b-4d5e-bfb3-2b8c844220c9";
 			};
 			name = Release;
 		};
