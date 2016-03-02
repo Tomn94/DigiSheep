@@ -248,6 +248,13 @@
                                                                                        delegate:nil
                                                                                   delegateQueue:[NSOperationQueue mainQueue]];
         
+        if (data != nil && ![data isEqualToString:@""] && [data rangeOfString:@","].location != NSNotFound)
+        {
+            NSArray *d = [data componentsSeparatedByString:@","];
+            if (d.count > 1)
+                data = d[1];
+        }
+        
         NSString *qrdt = [[data dataUsingEncoding:NSUTF8StringEncoding] base64EncodedStringWithOptions:0];
         NSString *body = [NSString stringWithFormat:@"login=%@&password=%@&idevent=%ld&type=QR_CODE&barcode=%@",
                           [[Data sharedData] login], [[Data sharedData] pass], (long)[[Data sharedData] sellEvent], qrdt];
