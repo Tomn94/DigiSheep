@@ -6,10 +6,15 @@
 [![Contributors](https://img.shields.io/badge/contributors-Thomas NAUDET-blue.svg)](http://twitter.com/tomn94)
 [![Licence](https://img.shields.io/badge/licence-GNU GPLv3-lightgrey.svg)](http://www.gnu.org/licenses/)
 
-Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [digisheep.eseomega.fr](http://digisheep.eseomega.fr)
+Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [digisheep.eseomega.fr](http://digisheep.eseomega.fr) &nbsp;·&nbsp; App BDE ESEO : [GitHub](https://github.com/Tomn94/BDE-ESEO)
+
+<img src="/Captures App Store/5/1.png?raw=true" height="300" />
+<img src="/Captures App Store/5/2.png?raw=true" height="300" />
+<img src="/Captures App Store/5/3.png?raw=true" height="300" />
+<img src="/Captures App Store/5/4.png?raw=true" height="300" />
 
 ## Description
-> DigiSheep vous permet de vendre et de scanner des places pour les différents événements du BDE ESEOmega et des différents clubs de l'école.<br>
+> DigiSheep vous permet de vendre et de scanner des places pour les différents événements du BDE ESEO et des différents clubs de l'école.<br>
 > Pour vous connecter, vous avez besoin d'un login et mot de passe que vous pourrez vous procurer auprès du BDE.<br>
 > Si vous êtes un club, le login et le mot de passe sont les mêmes que ceux qui vous ont été fournis pour gérer la cafétéria.
 > 
@@ -17,7 +22,7 @@ Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id108474683
 > • Vente d'une place (infos client, scan de la place)<br>
 > • Scan vérifiant la place (vérification unique, mode hors ligne, etc.)
 > 
-> Gère le scan des billets achetés via l'app ESEOmega, en plus de l'achat et du scan de places physiques.
+> Gère le scan des billets achetés via l'app BDE ESEO, en plus de l'achat et du scan de places physiques.
 > 
 > App utilisée pour vendre et scanner une grande partie des 2700 places de la Blue Moon 2016.
 
@@ -42,7 +47,7 @@ Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id108474683
 Nécessite une API Serveur SheepDevs pour fonctionner.
 
 ## TODO:
-- Généraliser l'icône de navette
+- Généraliser l'icône de navette à tout achat
 
 ## Versions
 ###v1.1 · 08/03/2016
