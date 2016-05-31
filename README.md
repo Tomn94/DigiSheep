@@ -8,10 +8,10 @@
 
 Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [digisheep.eseomega.fr](http://digisheep.eseomega.fr) &nbsp;·&nbsp; App BDE ESEO : [GitHub](https://github.com/Tomn94/BDE-ESEO)
 
-<img src="/Captures App Store/5/1.png?raw=true" height="300" />
-<img src="/Captures App Store/5/2.png?raw=true" height="300" />
-<img src="/Captures App Store/5/3.png?raw=true" height="300" />
-<img src="/Captures App Store/5/4.png?raw=true" height="300" />
+<img src="/Captures App Store/5/1.png?raw=true" height="350" />
+<img src="/Captures App Store/5/2.png?raw=true" height="350" />
+<img src="/Captures App Store/5/3.png?raw=true" height="350" />
+<img src="/Captures App Store/5/4.png?raw=true" height="350" />
 
 ## Description
 > DigiSheep vous permet de vendre et de scanner des places pour les différents événements du BDE ESEO et des différents clubs de l'école.<br>
@@ -46,7 +46,7 @@ Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id108474683
 ## Informations techniques
 Nécessite une API Serveur SheepDevs pour fonctionner.
 
-## TODO:
+## TODO
 - Généraliser l'icône de navette à tout achat
 
 ## Versions
