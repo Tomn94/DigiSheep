@@ -51,7 +51,7 @@ Se référer au [tutoriel](https://github.com/Tomn94/DigiSheep/blob/master/DigiS
 Nécessite une API Serveur SheepDevs pour fonctionner.
 
 ## TODO
-- Généraliser l'icône de navette à tout achat
+- Généraliser le mot « place » et « navette » (dont icône bus) à respectivement tout type d'achat et d'achat spécifique
 
 ## Versions
 ###v1.1 · 08/03/2016
