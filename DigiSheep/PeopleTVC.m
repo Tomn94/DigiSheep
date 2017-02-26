@@ -60,16 +60,16 @@
     PeopleCell *cell1 = (PeopleCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     PeopleCell *cell2 = (PeopleCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     
-    if ([cell1.field.text isEqualToString:@""] || [cell2.field.text isEqualToString:@""])
+    if ([cell1.field.text isEqualToString:@""])
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Erreur"
-                                                                       message:@"Remplissez les champs Nom et Date de naissance"
+                                                                       message:@"Entrez le nom de l'acheteur"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
         return;
     }
-    else if (![[NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"(\\d{2})/(\\d{2})/(\\d{4})"] evaluateWithObject:cell2.field.text])
+    if (![cell2.field.text isEqualToString:@""] && ![[NSPredicate predicateWithFormat:@"SELF MATCHES %@", @"(\\d{2})/(\\d{2})/(\\d{4})"] evaluateWithObject:cell2.field.text])
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Erreur"
                                                                        message:@"Vérifiez le format de la date, avez les zéros\n(21/01/2042)"
@@ -83,7 +83,7 @@
     if (selectionPlace == nil || [selectionPlace isEqualToString:@""])
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Erreur"
-                                                                       message:@"Sélectionnez un type de place"
+                                                                       message:@"Sélectionnez un achat"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
@@ -209,7 +209,7 @@
  titleForHeaderInSection:(NSInteger)section
 {
     if (section)
-        return @"Type de place désiré";
+        return @"Achat désiré";
     return @"Informations acheteur";
 }
 
@@ -228,7 +228,7 @@
         if (indexPath.row == 0)
         {
             c.label.text = @"Prénom Nom";
-            c.field.placeholder = @"Guy Plantier";
+            c.field.placeholder = @"Guy Plancher";
             c.field.keyboardType = UIKeyboardTypeDefault;
             c.field.returnKeyType = UIReturnKeyNext;
             c.field.autocapitalizationType = UITextAutocapitalizationTypeWords;

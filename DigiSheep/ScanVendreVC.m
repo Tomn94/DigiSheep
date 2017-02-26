@@ -30,7 +30,7 @@
     o = [UIDevice currentDevice].orientation;
     self.view.backgroundColor = [UIColor blackColor];
     captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    self.navigationItem.title = @"Scanner la place à vendre";
+    self.navigationItem.title = @"Scanner le ticket à vendre";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"flashOff"]
                                                                                 style:UIBarButtonItemStylePlain
                                                                                target:self
