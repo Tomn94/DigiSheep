@@ -101,7 +101,7 @@
                                               if ([JSON[@"status"] intValue] == 1)
                                               {
                                                   // CONNEXION AU JSON EVENTS
-                                                  NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@%d", URL_JSON, (int)arc4random_uniform(9999)]];
+                                                  NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%d", URL_JSON, (int)arc4random_uniform(9999)]];
                                                   NSMutableURLRequest *request2 = [[NSMutableURLRequest alloc] initWithURL:url2];
                                                   NSURLSessionDataTask *dataTask2 = [defaultSession dataTaskWithRequest:request2
                                                                                                      completionHandler:^(NSData *data2, NSURLResponse *r, NSError *error2)
@@ -114,16 +114,16 @@
                                                         
                                                         if (error2 == nil && data2 != nil)
                                                         {
-                                                            NSDictionary *JSON2 = [NSJSONSerialization JSONObjectWithData:data2
-                                                                                                                  options:kNilOptions
-                                                                                                                    error:nil];
-                                                            if (JSON2 != nil && [JSON2[@"events"] count])
+                                                            NSArray *JSON2 = [NSJSONSerialization JSONObjectWithData:data2
+                                                                                                             options:kNilOptions
+                                                                                                               error:nil];
+                                                            if (JSON2 != nil && [JSON2 count])
                                                             {
                                                                 // CONNECTÉ
                                                                 NSDictionary *e = nil;
-                                                                for (NSDictionary *event in JSON2[@"events"])
+                                                                for (NSDictionary *event in JSON2)
                                                                 {
-                                                                    if ([event[@"idEvent"] integerValue] == [JSON[@"data"][@"sellevent"] integerValue])
+                                                                    if ([event[@"id"] integerValue] == [JSON[@"data"][@"sellevent"] integerValue])
                                                                     {
                                                                         e = event;
                                                                         break;

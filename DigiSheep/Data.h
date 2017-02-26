@@ -23,11 +23,11 @@
 @import UIKit;
 #import <CommonCrypto/CommonHMAC.h>
 
-#define URL_LOGIN @"https://web59.secure-secure.co.uk/francoisle.fr/lacommande/api/digisheep/login.php"
-#define URL_JSON  @"https://web59.secure-secure.co.uk/francoisle.fr/eseonews/jsondata/events_data/events.json?%d"
-#define URL_NAVET @"https://web59.secure-secure.co.uk/francoisle.fr/lacommande/api/digisheep/items.php"
-#define URL_CHECK @"https://web59.secure-secure.co.uk/francoisle.fr/lacommande/api/digisheep/check.php"
-#define URL_SEND  @"https://web59.secure-secure.co.uk/francoisle.fr/lacommande/api/digisheep/send.php"
+#define URL_LOGIN @"https://web59.secure-secure.co.uk/francoisle.fr/api/digisheep/login"
+#define URL_JSON  @"https://web59.secure-secure.co.uk/francoisle.fr/api/events/"
+#define URL_NAVET @"https://web59.secure-secure.co.uk/francoisle.fr/api/digisheep/items"
+#define URL_CHECK @"https://web59.secure-secure.co.uk/francoisle.fr/api/digisheep/check"
+#define URL_SEND  @"https://web59.secure-secure.co.uk/francoisle.fr/api/digisheep/send"
 
 @interface Data : NSObject
 

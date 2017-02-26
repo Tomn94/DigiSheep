@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = [[Data sharedData] JSON][@"titre"];
+    self.navigationItem.title = [[Data sharedData] JSON][@"title"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendInfos:) name:@"sendInfosResa" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clear) name:@"clearFields" object:nil];
 }
@@ -259,14 +259,14 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellID2 forIndexPath:indexPath];
         
         NSDictionary *ticket = [[Data sharedData] JSON][@"tickets"][indexPath.row];
-        cell.textLabel.text  = [NSString stringWithFormat:@"%@ · %.2f €", ticket[@"nom"], [ticket[@"prix"] doubleValue]];
-        cell.selectionStyle  = ([ticket[@"dispo"] boolValue]) ? UITableViewCellSelectionStyleDefault
-                                                              : UITableViewCellSelectionStyleNone;
-        cell.accessoryType = ([selectionPlace isEqualToString:ticket[@"id"]]) ? UITableViewCellAccessoryCheckmark
-                                                                              : UITableViewCellAccessoryNone;
+        cell.textLabel.text  = [NSString stringWithFormat:@"%@ · %.2f €", ticket[@"name"], [ticket[@"price"] doubleValue]];
+        cell.selectionStyle  = ([ticket[@"available"] boolValue]) ? UITableViewCellSelectionStyleDefault
+                                                                  : UITableViewCellSelectionStyleNone;
+        cell.accessoryType = ([selectionPlace isEqualToString:ticket[@"ticketId"]]) ? UITableViewCellAccessoryCheckmark
+                                                                                    : UITableViewCellAccessoryNone;
         cell.textLabel.textColor = ([ticket[@"dispo"] boolValue]) ?
-                   (([selectionPlace isEqualToString:ticket[@"id"]]) ? [UINavigationBar appearance].barTintColor
-                                                                     : [UIColor grayColor])
+                   (([selectionPlace isEqualToString:ticket[@"ticketId"]]) ? [UINavigationBar appearance].barTintColor
+                                                                           : [UIColor grayColor])
                                                                   : [UIColor lightGrayColor];
     }
     
@@ -279,9 +279,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSDictionary *ticket = [[Data sharedData] JSON][@"tickets"][indexPath.row];
-    if (![ticket[@"dispo"] boolValue])
+    if (![ticket[@"available"] boolValue])
         return;
-    selectionPlace = ticket[@"id"];
+    selectionPlace = ticket[@"ticketId"];
     [tableView reloadData];
 }
 
