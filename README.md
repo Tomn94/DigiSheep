@@ -6,7 +6,7 @@
 [![Contributors](https://img.shields.io/badge/contributors-Thomas NAUDET-blue.svg)](http://twitter.com/tomn94)
 [![Licence](https://img.shields.io/badge/licence-GNU GPLv3-lightgrey.svg)](http://www.gnu.org/licenses/)
 
-Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [digisheep.eseomega.fr](http://portail.eseomega.fr/digisheep) &nbsp;·&nbsp; App BDE ESEO : [GitHub](https://github.com/Tomn94/BDE-ESEO)
+Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [portail.eseomega.fr/digisheep](http://portail.eseomega.fr/digisheep) &nbsp;·&nbsp; App BDE ESEO : [GitHub](https://github.com/Tomn94/BDE-ESEO)
 
 <img src="/Captures App Store/5/1.png?raw=true" height="350" />
 <img src="/Captures App Store/5/2.png?raw=true" height="350" />
@@ -14,9 +14,9 @@ Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id108474683
 <img src="/Captures App Store/5/4.png?raw=true" height="350" />
 
 ## Description
-> DigiSheep vous permet de vendre et de scanner des tickets pour les différents événements du BDE ESEO et des différents clubs de l'école.<br>
-> Pour vous connecter, vous avez besoin d'un login et mot de passe que vous pourrez vous procurer auprès du BDE.<br>
-> Si vous êtes un club, le login et le mot de passe sont les mêmes que ceux qui vous ont été fournis le portail ou pour gérer la cafétéria.
+> DigiSheep vous permet de vendre et de scanner des tickets pour les différents événements du BDE ESEO et des différents clubs de l'école.
+> 
+> Pour vous connecter, utilisez les identifiants de votre compte club sur le Portail Vie Associative et cafétéria.
 > 
 > Fonctionnalités :<br>
 > • Vente d'un ticket (infos client & attribution par scan)<br>
