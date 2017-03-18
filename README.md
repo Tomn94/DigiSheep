@@ -3,24 +3,21 @@
 [![Version](https://img.shields.io/badge/version-1.2-green.svg)](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8)
 [![Code](https://img.shields.io/badge/code-Objective--C-orange.svg)](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210)
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](http://www.apple.com/ios/)
-[![Contributors](https://img.shields.io/badge/contributors-Thomas NAUDET-blue.svg)](http://twitter.com/tomn94)
-[![Licence](https://img.shields.io/badge/licence-GNU GPLv3-lightgrey.svg)](http://www.gnu.org/licenses/)
+[![Contributors](https://img.shields.io/badge/contributors-Thomas%20NAUDET-blue.svg)](http://twitter.com/tomn94)
+[![Licence](https://img.shields.io/badge/licence-GNU%20GPLv3-lightgrey.svg)](http://www.gnu.org/licenses/)
 
 Télécharger : [App Store](https://itunes.apple.com/app/apple-store/id1084746837?pt=104224803&ct=GitHub&mt=8) &nbsp;·&nbsp; Interface d'administration : [portail.eseomega.fr/digisheep](http://portail.eseomega.fr/digisheep) &nbsp;·&nbsp; App BDE ESEO : [GitHub](https://github.com/Tomn94/BDE-ESEO)
 
-<img src="/Captures App Store/5/1.png?raw=true" height="350" />
-<img src="/Captures App Store/5/2.png?raw=true" height="350" />
-<img src="/Captures App Store/5/3.png?raw=true" height="350" />
-<img src="/Captures App Store/5/4.png?raw=true" height="350" />
+<img src="/Captures App Store/5/1.png?raw=true" height="350" /> <img src="/Captures App Store/5/2.png?raw=true" height="350" /> <img src="/Captures App Store/5/3.png?raw=true" height="350" /> <img src="/Captures App Store/5/4.png?raw=true" height="350" />
 
 ## Description
 > DigiSheep vous permet de vendre et de scanner des tickets pour les différents événements du BDE ESEO et des différents clubs de l'école.
 > 
 > Pour vous connecter, utilisez les identifiants de votre compte club sur le Portail Vie Associative et cafétéria.
 > 
-> Fonctionnalités :<br>
-> • Vente d'un ticket (infos client & attribution par scan)<br>
-> • Scan vérifiant le ticket (vérification unique, mode hors ligne, etc.)
+> Fonctionnalités :
+> - Vente d'un ticket (infos client & attribution par scan)
+> - Scan vérifiant le ticket (vérification unique, mode hors ligne, etc.)
 > 
 > Gère le scan des billets achetés via l'app BDE ESEO, en plus de l'achat et du scan de tickets physiques.
 > 
@@ -52,12 +49,12 @@ Se référer au [tutoriel](https://github.com/Tomn94/DigiSheep/blob/master/DigiS
 Nécessite une [API Serveur BDE](https://github.com/Tomn94/Portail-Vie-Asso-ESEO) pour fonctionner.
 
 ## Versions
-###v1.2 · 2017
+### v1.2 · 28/02/2017
 > - Mise à jour de l'API, améliorations et corrections
 
-###v1.1 · 08/03/2016
+### v1.1 · 08/03/2016
 > - Passage en HTTPS
 > - Correction de l'envoi de certains QRcodes
 
-###v1.0 · 19/02/2016
+### v1.0 · 19/02/2016
 > *Publication originale après tests à la Blue Moon 2016*
